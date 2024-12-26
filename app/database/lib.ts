@@ -1,4 +1,5 @@
 import { drizzle } from "drizzle-orm/libsql";
+import * as file_schema from "./schema/file";
 
 const database_url = Bun.env.DATABASE_URL;
 const database_auth_token = Bun.env.DATABASE_AUTH_TOKEN;
@@ -11,6 +12,9 @@ const db = drizzle({
 	connection: {
 		url: database_url,
 		authToken: database_auth_token,
+	},
+	schema: {
+		...file_schema,
 	},
 });
 

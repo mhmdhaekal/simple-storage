@@ -10,8 +10,10 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "@hono/valibot-validator": "^0.5.1",
     "@libsql/client": "^0.14.0",
     "drizzle-orm": "^0.38.3",
-    "hono": "^4.6.14"
+    "hono": "^4.6.14",
+    "valibot": "^1.0.0-beta.9"
   }
 }

@@ -27,6 +27,7 @@ COPY --from=prerelease /app/drizzle ./drizzle
 COPY --from=prerelease /app/migrate.ts ./migrate.ts
 COPY --from=prerelease /app/package.json ./package.json
 COPY --from=prerelease /app/entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY --from=prerelease /app/index.ts ./index.ts
 
 RUN chmod +x /usr/local/bin/entrypoint.sh
 ENV NODE_ENV=production

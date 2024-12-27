@@ -7,8 +7,11 @@ services:
       - PORT=${PORT}
       - DATABASE_URL=${DATABASE_URL}
       - DATABASE_AUTH_TOKEN=${DATABASE_AUTH_TOKEN}
+      - STORAGE_BASE_PATH=/app/storage
     ports:
       - 80:3000
+    volumes:
+      - file_storage:/app/storage
     build:
       context: .
       dockerfile: Dockerfile
@@ -16,3 +19,7 @@ networks:
   libsql_storage-network:
     external: true
     name: libsql_storage-network
+volumes:
+  file_storage:
+    name: file_stroage
+    driver: local

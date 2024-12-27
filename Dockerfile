@@ -6,8 +6,8 @@ FROM base AS install
 
 RUN mkdir -p /temp/dev /temp/prod
 
-COPY package.json bun.lockb /temp/dev/
-COPY package.json bun.lockb /temp/prod/
+COPY package.json bun.lock bunfig.toml /temp/dev/
+COPY package.json bun.lock bunfig.toml /temp/prod/
 
 RUN cd /temp/dev && bun install --frozen-lockfile
 
@@ -32,4 +32,4 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 ENV NODE_ENV=production
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
-CMD ["bun", "run", "start"]
+CMD ["bun", "run", "index.ts"]

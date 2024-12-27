@@ -1,0 +1,18 @@
+services:
+  file-storage:
+    container_name: file-storage
+    networks:
+      - libsql_storage-network
+    environment:
+      - PORT=${PORT}
+      - DATABASE_URL=${DATABASE_URL}
+      - DATABASE_AUTH_TOKEN=${DATABASE_AUTH_TOKEN}
+    ports:
+      - 80:3000
+    build:
+      context: .
+      dockerfile: Dockerfile
+networks:
+  libsql_storage-network:
+    external: true
+    name: libsql_storage-network
